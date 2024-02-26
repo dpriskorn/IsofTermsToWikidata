@@ -104,7 +104,9 @@ class Term(BaseModel):
     def sv_termlines(self) -> list[str]:
         return self.get_specific_line_content(control_word="svTE")
 
-    def get_specific_line_content(self, control_word: str = "", control_words=None) -> list[str]:
+    def get_specific_line_content(
+        self, control_word: str = "", control_words=None
+    ) -> list[str]:
         """This returns the content without the control word and first space after
         NOTE: it does not yet support multi-line entries"""
         if control_words is None:
@@ -122,15 +124,21 @@ class Term(BaseModel):
 
     @property
     def term_lines(self) -> list[str]:
-        return self.get_specific_line_content(control_words=self.term_language_control_word_combinations)
+        return self.get_specific_line_content(
+            control_words=self.term_language_control_word_combinations
+        )
 
     @property
     def definition_lines(self) -> list[str]:
-        return self.get_specific_line_content(control_words=self.definition_language_control_word_combinations)
+        return self.get_specific_line_content(
+            control_words=self.definition_language_control_word_combinations
+        )
 
     @property
     def annotation_lines(self) -> list[str]:
-        return self.get_specific_line_content(control_words=self.annotation_language_control_word_combinations)
+        return self.get_specific_line_content(
+            control_words=self.annotation_language_control_word_combinations
+        )
 
     @property
     def term_language_control_word_combinations(self) -> list[str]:
@@ -182,7 +190,7 @@ class Term(BaseModel):
                     # logger.debug(f"recognized control word: {first_word}")
                     pass
                 else:
-                    #if not first_word == "\n":
+                    # if not first_word == "\n":
                     raise UnknownCombination(f"'{first_word}' in {line}")
             else:
                 # first word was empty == continuation line
@@ -195,3 +203,7 @@ class Term(BaseModel):
             if first_word in self.all_language_control_word_combinations:
                 return True
         return False
+
+    @property
+    def raw_line_count(self) -> int:
+        return len(self.raw_lines)
