@@ -94,6 +94,8 @@ class Source(BaseModel):
         with open(file=self.path, mode="r") as file:
             for line in file.readlines():
                 count += 1
+                # Remove NBSP-characters
+                line.replace("\xa0", " ")
                 logger.debug(f"working on count {count}, {line}")
                 # discard line 1- end of metadata + separating line
                 skip_count = 4 + len(self.raw_metadata) + 1
@@ -128,19 +130,22 @@ class Source(BaseModel):
 
     def check_terms(self):
         for term in self.terms:
+            logger.debug(f"working on path {self.path}")
             term.check_languages_and_control_words()
 
     def iterate_terms(self):
         """Debug method to show the terms one by one"""
         logger.debug("iterate_terms: running")
         for term in self.terms:
-            print(f"terms: {term.term_lines}\n"
-                  f"definitions: {term.definition_lines}\n"
-                  f"annotations: {term.annotation_lines}")
+            print(
+                f"terms: {term.term_lines}\n"
+                f"definitions: {term.definition_lines}\n"
+                f"annotations: {term.annotation_lines}"
+            )
             input("press enter to show next")
 
     def start(self):
         self.parse_metadata()
         self.parse_terms()
-        # self.check_terms()
-        self.iterate_terms()
+        self.check_terms()
+        # self.iterate_terms()
