@@ -1,6 +1,6 @@
 # ISOF terms to Wikidata
-Det här är ett verktyg för att avläsa och koppla 
-ihop termer från ISOF med Wikidata koncept.
+Det här är ett verktyg för att bearbeta och publicera termer från ISOF 
+på ett sätt så de kan länkas ihop med koncepter på Wikidata.
 
 ## Offentlig verksamhet
 Termerna har samlats ihop från många olika officiella rapporter dokument på svenska. 
