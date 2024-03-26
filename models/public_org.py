@@ -27,7 +27,21 @@ class PublicOrgHandler(BaseModel):
         for source in self.sources:
             source.start()
 
+    def gather_and_print_statistics(self):
+        total_term_line_count = 0
+        total_term_count = 0
+        for source in self.sources:
+            for term in source.terms:
+                total_term_count += 1
+                total_term_line_count += term.raw_line_count
+        print(
+            f"Found {len(self.sources)} sources with a total of "
+            f"{total_term_count} terms and "
+            f"{total_term_line_count} term lines in total."
+        )
+
     def start(self):
         self.find_all_sources()
-        input("Press enter to iterate")
         self.iterate_sources()
+        self.gather_and_print_statistics()
+        # input("Press enter to iterate")
