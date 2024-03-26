@@ -142,6 +142,7 @@ class Source(BaseModel):
             print(
                 f"terms: {term.term_lines}\n"
                 f"definitions: {term.definition_lines}\n"
+                f"explanations: {term.explanation_lines}\n"
                 f"annotations: {term.annotation_lines}"
             )
             input("press enter to show next")
