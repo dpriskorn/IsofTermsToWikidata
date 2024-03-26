@@ -1,10 +1,11 @@
 # Constants
+# See http://www.nordterm.net/filer/NTRF/Ntrf.pdf for definitions
 control_words: list[str] = [
     "AN",  # anteckning
     "AVTE",  # avledd term?
     "BT",  # ?
     "DF",  # definition
-    "EKVI",
+    "EKVI",  # ekvivalent
     "ETYM",  # etymologi
     "EX",  # exempel?
     "FK",  # förklaring
@@ -44,7 +45,7 @@ known_languages: list[str] = [
     "ja",
     "pl",
     "so",
-    "tr"
+    "tr",
 ]
 unprefixed_control_words: list[str] = [
     "BNGR",
