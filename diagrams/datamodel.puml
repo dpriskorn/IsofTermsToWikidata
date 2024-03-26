@@ -1,0 +1,27 @@
+@startuml
+'hide circle
+hide empty members
+
+class Term {
+    - id: int PRIMARY
+    - term: varchar UNIQUE NOT NULL
+    - definition: varchar
+    - annotation: varchar
+    - language_code: varchar
+}
+class Language {
+    - code: varchar UNIQUE NOT NULL
+    - name: varchar UNIQUE NOT NULL
+    - wikidata: varchar UNIQUE NOT NULL
+}
+class WikipediaResult {
+    - id: int PRIMARY
+    - term_id: int NOT NULL
+    - found: boolean NOT NULL
+    - dump_date: date UNIQUE NOT NULL
+    - language_code: varchar NOT NULL
+}
+Term "1" -- "1" Language : code
+Term "1" -- "many" WikipediaResult : id
+WikipediaResult "1" -- "1" Language : language_code
+@enduml
