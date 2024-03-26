@@ -23,6 +23,12 @@ Det finns ~16038 anteckningar ($ grep -r AN .|wc -l)
 11356 svenska anteckningar $ grep -r ^svAN .|wc -l
 331 engelska anteckningar $ grep -r ^enAN .|wc -l
 
+Found 2366 sources with a total of 49266 terms and 175027 term lines in total.
+19496 (39.57293062152397%) terms lack a definition
+13851 (28.114724150529778%) terms lack a definition but has an explanation
+5645 (11.458206470994195%) terms lack a definition and an explanation
+49260 (99.9878212154427%) swedish terms
+
 ### Observationer
 * Datan från ISOF innebär en del utmaningar pga bristen 
 på enhetlig struktur. Tex är den svår att läsa rad för rad för 

@@ -46,9 +46,9 @@ class PublicOrgHandler(BaseModel):
                         total_terms_without_definition_without_explanation += 1
                 if term.has_sv_term:
                     total_sv_term_count += 1
-                else:
-                    raise Exception(f"term: {term.model_dump()}\n"
-                                    f"has no sv term")
+                # else:
+                #     raise Exception(f"term: {term.model_dump()}\n"
+                #                     f"has no sv term")
 
         print(
             f"Found {len(self.sources)} sources with a total of "
