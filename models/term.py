@@ -119,6 +119,7 @@ class Term(BaseModel):
                 # logger.debug(f"split line: {space_split_list}")
                 first_word = space_split_list[0]
                 if first_word == control_word or first_word in control_words:
+                    # Join the value with spaces before adding it to the list.
                     lines.append(" ".join(space_split_list[1:]).strip())
         return lines
 
@@ -141,6 +142,12 @@ class Term(BaseModel):
         )
 
     @property
+    def explanation_lines(self) -> list[str]:
+        return self.get_specific_line_content(
+            control_words=self.explanation_language_control_word_combinations
+        )
+
+    @property
     def term_language_control_word_combinations(self) -> list[str]:
         return self.control_word_combinations_for_all_languages(control_word="TE")
 
@@ -151,6 +158,10 @@ class Term(BaseModel):
     @property
     def annotation_language_control_word_combinations(self) -> list[str]:
         return self.control_word_combinations_for_all_languages(control_word="AN")
+
+    @property
+    def explanation_language_control_word_combinations(self) -> list[str]:
+        return self.control_word_combinations_for_all_languages(control_word="FK")
 
     @staticmethod
     def control_word_combinations_for_all_languages(control_word: str) -> list[str]:
