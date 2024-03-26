@@ -7,8 +7,10 @@ Termerna har samlats ihop från många olika officiella rapporter dokument på s
 Det finns termer på både svenska och engelska.
 
 ### TODO
-* generera id och html för varje källa och term och publicera via github pages
-* hantera linjer som saknar kontrolord.
+* skrapa rikstermbanken.se och länka ihop?
+* möjliggör att kolla upp varje term i Wikipedia
+* create a webapp that helps editors upload missing terms 
+or missing swedish translations of terms to Wikidata
 
 ### Statistik
 Det finns ~93984 termer ($ grep -r TE .|wc -l)
