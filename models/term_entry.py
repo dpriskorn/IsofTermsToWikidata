@@ -218,3 +218,15 @@ class TermEntry(BaseModel):
     @property
     def raw_line_count(self) -> int:
         return len(self.raw_lines)
+
+    @property
+    def has_definition(self) -> bool:
+        return bool(self.definition_lines)
+
+    @property
+    def has_explanation(self) -> bool:
+        return bool(self.explanation_lines)
+
+    @property
+    def has_sv_term(self) -> bool:
+        return bool(self.sv_termlines)
