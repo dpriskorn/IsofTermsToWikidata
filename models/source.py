@@ -109,7 +109,9 @@ class Source(BaseModel):
                     logger.debug(
                         "got empty line, marking end of term and adding term to list"
                     )
-                    self.terms.append(term)
+                    # Guard against empty term entries
+                    if term.term_lines:
+                        self.terms.append(term)
                     # resetting term
                     term = TermEntry()
                     # exit()
