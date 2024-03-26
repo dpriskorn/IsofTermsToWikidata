@@ -2,7 +2,7 @@ import logging
 
 from pydantic import BaseModel
 
-from models.term import Term
+from models.term_entry import TermEntry
 
 logger = logging.getLogger(__name__)
 
@@ -50,7 +50,7 @@ class Source(BaseModel):
 
     name: str
     path: str
-    terms: list[Term] = list()
+    terms: list[TermEntry] = list()
     # source_id: Field("", alias="Källid")
     raw_metadata: dict[str, str] = dict()
 
@@ -90,7 +90,7 @@ class Source(BaseModel):
         logger.debug("parse_metadata: running")
         # exit()
         count = 0
-        term = Term()
+        term = TermEntry()
         with open(file=self.path, mode="r") as file:
             for line in file.readlines():
                 count += 1
@@ -111,7 +111,7 @@ class Source(BaseModel):
                     )
                     self.terms.append(term)
                     # resetting term
-                    term = Term()
+                    term = TermEntry()
                     # exit()
                     # debug exit
                     # break
@@ -124,7 +124,7 @@ class Source(BaseModel):
                     # overwrite the end line count
                     term.line_end = count
                     logger.debug(f"added line to term: {line}")
-        logger.info(f"number of terms found: {len(self.terms)}")
+        # logger.info(f"number of terms found: {len(self.terms)}")
         # pprint(self.terms)
         # exit()
 

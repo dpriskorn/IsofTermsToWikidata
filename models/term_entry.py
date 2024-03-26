@@ -4,7 +4,7 @@ from constants import known_languages, control_words, unprefixed_control_words
 from models.exceptions import UnknownCombination
 
 
-class Term(BaseModel):
+class TermEntry(BaseModel):
     """Klass för en term.
     En term kan ha flera linjer med samma kontrolord.
     Formatet är svårt att tolka.
