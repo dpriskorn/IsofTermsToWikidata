@@ -35,9 +35,6 @@ Found 2366 sources with a total of 49266 terms and 175027 term lines in total.
 * Datan från ISOF innebär en del utmaningar pga bristen 
 på enhetlig struktur. Tex är den svår att läsa rad för rad för 
 varje rad är inte markerat upp 100% tex när definitioner fortsätter på ny rad.
-* ISOF vet inte själva vad förkortningarna betyder, 
-så det blir en del gissande när datan ska tolkas. 
-* Det är inte optimalt att datamängden saknar både struktur och specifikation för det gör den svår att använda.
 * Datamängden saknar helt unika identifierare för varje term. Det är en stor brist som sänker värdet avsevärt.
 * Bristen på GUPRI och API vittnar om att ISOF ser det här som ett arkiv, det pågår ingen förädling eller 
 löpande kvalitetshöjning. Datan är "död" och utelämnas "as is".
